@@ -43,3 +43,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
 end
+
+gem 'devise'
+
+gem 'activeadmin', github: 'gregbell/active_admin'
