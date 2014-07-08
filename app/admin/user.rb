@@ -33,6 +33,14 @@ ActiveAdmin.register User do
       row :email
       row :created_at
     end
+
+    table_for user.payment_methods do
+      column "Payment Method" do |payment_method|
+        link_to "View Payment Method", [:admin, payment_method]
+      end
+      column "Balanced Bank Name", :balanced_bank_name
+      column "Balanced Account Number", :balanced_account_number
+    end
   end
 
 end
