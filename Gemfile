@@ -39,9 +39,11 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
-  gem 'database_cleaner'
-  gem 'rspec-rails'
   gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
 end
 
 gem 'devise'
