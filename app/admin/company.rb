@@ -19,6 +19,14 @@ ActiveAdmin.register Company do
       row :phone
       row :created_at
     end
+
+    table_for company.addresses do
+      column :view do |address|
+        link_to "Address", [:admin, address]
+      end
+      column :street_address
+      column :street_address_line_2
+    end
   end
 
 end
