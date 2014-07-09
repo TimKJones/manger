@@ -11,9 +11,22 @@ ActiveAdmin.register Address do
     column :state
     column :zip
     column "Company Name" do |address|
-      address.company.name
+      link_to address.company.name, [:admin, address.company]
     end
     actions
+  end
+
+  show do
+    attributes_table do
+      row :street_address
+      row :street_address_line_2
+      row :city
+      row :state
+      row :zip
+      row :company do |address|
+        link_to address.company.name, [:admin, address.company]
+      end
+    end
   end
 
 end
