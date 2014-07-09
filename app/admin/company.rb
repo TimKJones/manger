@@ -11,4 +11,14 @@ ActiveAdmin.register Company do
     actions
   end
 
+  show do
+    attributes_table do
+      row :name
+      row :city
+      row :email
+      row :phone
+      row :created_at
+    end
+  end
+
 end
