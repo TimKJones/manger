@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709183441) do
+ActiveRecord::Schema.define(version: 20140715211149) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -75,6 +75,22 @@ ActiveRecord::Schema.define(version: 20140709183441) do
     t.string   "balanced_id"
     t.string   "balanced_href"
     t.string   "balanced_transaction_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", force: true do |t|
+    t.string   "street_address"
+    t.text     "payment_notes"
+    t.string   "memo"
+    t.decimal  "rent_amount"
+    t.boolean  "separate_checks"
+    t.date     "first_payment_date"
+    t.date     "final_payment_date"
+    t.integer  "company_id"
+    t.integer  "payment_address_id"
+    t.string   "city"
+    t.string   "invite_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
