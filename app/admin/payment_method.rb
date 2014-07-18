@@ -1,5 +1,5 @@
 def user_link user
-  link_to "#{user.first_name} #{user.last_name}", [:admin, user]
+  link_to user, [:admin, user]
 end
 
 ActiveAdmin.register PaymentMethod do
