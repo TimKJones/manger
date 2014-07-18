@@ -1,5 +1,7 @@
 ActiveAdmin.register Company do
 
+  permit_params :name, :city, :email, :phone
+
   filter :name
   filter :city
 
@@ -9,6 +11,16 @@ ActiveAdmin.register Company do
     column :name
     column :city
     actions
+  end
+
+  form do |f|
+    f.inputs "Company Details" do
+      f.input :name
+      f.input :city
+      f.input :email
+      f.input :phone
+    end
+    f.actions
   end
 
   show do
