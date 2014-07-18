@@ -10,6 +10,8 @@ ActiveAdmin.register Company do
     id_column
     column :name
     column :city
+    column :email
+    column :phone
     actions
   end
 
