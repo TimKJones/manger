@@ -4,7 +4,7 @@ end
 
 ActiveAdmin.register Credit do
 
-  actions :index, :show
+  actions :index, :show, :edit
 
   index do
     selectable_column
@@ -19,6 +19,20 @@ ActiveAdmin.register Credit do
     column :status
     column :created_at
     actions
+  end
+
+  show do
+    attributes_table do
+      row :company do
+        company_link credit.company
+      end
+      row :amount do
+        credit.amount
+      end
+      row :sent_date
+      row :status
+      row :created_at
+    end
   end
 
 end
