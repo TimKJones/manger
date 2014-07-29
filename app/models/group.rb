@@ -1,5 +1,6 @@
 class Group < ActiveRecord::Base
   has_many :users
+  has_many :invites
   belongs_to :payment_address, class_name: "Address"
   belongs_to :company
 
