@@ -34,12 +34,30 @@ ActiveAdmin.register User do
       row :created_at
     end
 
-    table_for user.payment_methods do
-      column "Payment Method" do |payment_method|
-        link_to "View Payment Method", [:admin, payment_method]
+    panel "Payment Methods" do
+      table_for user.payment_methods do
+        column "Payment Method" do |payment_method|
+          link_to "View", [:admin, payment_method]
+        end
+        column "Balanced Bank Name", :balanced_bank_name
+        column "Balanced Account Number", :balanced_account_number
       end
-      column "Balanced Bank Name", :balanced_bank_name
-      column "Balanced Account Number", :balanced_account_number
+    end
+
+    panel "Groups" do
+      table_for user.groups do
+        column "Group" do |group|
+          link_to "View", [:admin, group]
+        end
+        column :street_address
+        column :city
+        column "Company" do |group|
+          link_to group.company, [:admin, group.company]
+        end
+        column "Rent Amount" do |group|
+          RecurringPayment.find_by_user_id_and_group_id(user.id, group.id).rent_amount
+        end
+      end
     end
   end
 
