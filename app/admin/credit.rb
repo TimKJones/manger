@@ -35,4 +35,17 @@ ActiveAdmin.register Credit do
     end
   end
 
+  permit_params :status, :sent_date
+
+  form do |f|
+    f.inputs "Credit" do
+      f.input :company, input_html: { disabled: true }
+      f.input :amount, input_html: { disabled: true }
+      f.input :created_at, input_html: { disabled: true }, as: :datepicker
+      f.input :status
+      f.input :sent_date, as: :datepicker
+    end
+    f.actions
+  end
+
 end
