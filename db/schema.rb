@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729131053) do
+ActiveRecord::Schema.define(version: 20140729132230) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -123,6 +123,16 @@ ActiveRecord::Schema.define(version: 20140729131053) do
     t.integer  "user_id"
     t.string   "balanced_bank_name"
     t.string   "balanced_account_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recurring_payments", force: true do |t|
+    t.decimal  "rent_amount"
+    t.string   "memo"
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.integer  "payment_method_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
