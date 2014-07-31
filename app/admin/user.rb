@@ -26,7 +26,7 @@ ActiveAdmin.register User do
     f.actions
   end
 
-  show do
+  show title: proc { |user| "#{user.first_name} #{user.last_name} (#{user.email})" } do
     attributes_table do
       row :first_name
       row :last_name

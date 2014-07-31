@@ -25,7 +25,7 @@ ActiveAdmin.register Company do
     f.actions
   end
 
-  show do
+  show title: :name do
     attributes_table do
       row :name
       row :city
@@ -34,12 +34,14 @@ ActiveAdmin.register Company do
       row :created_at
     end
 
-    table_for company.addresses do
-      column :view do |address|
-        link_to "Address", [:admin, address]
+    panel "Addresses" do
+      table_for company.addresses do
+        column :view do |address|
+          link_to "Address", [:admin, address]
+        end
+        column :street_address
+        column :street_address_line_2
       end
-      column :street_address
-      column :street_address_line_2
     end
   end
 

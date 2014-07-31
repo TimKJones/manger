@@ -10,13 +10,13 @@ ActiveAdmin.register Address do
     column :city
     column :state
     column :zip
-    column "Company Name" do |address|
+    column "Company" do |address|
       link_to address.company.name, [:admin, address.company]
     end
     actions
   end
 
-  show do
+  show title: :street_address do
     attributes_table do
       row :street_address
       row :street_address_line_2
