@@ -41,6 +41,17 @@ ActiveAdmin.register Group do
       end
     end
 
+    panel "Users" do
+      table_for group.users do
+        column "User" do |user|
+          link_to "View", [:admin, user]
+        end
+        column :first_name
+        column :last_name
+        column :email
+      end
+    end
+
     panel "Invites" do
       table_for group.invites do
         column :email
@@ -58,17 +69,6 @@ ActiveAdmin.register Group do
         end
       end
     end
-
-=begin
-    #TODO how are users related to groups?
-    panel "Users" do
-      table_for group.users do
-        column :first_name
-        column :last_name
-        column :email
-      end
-    end
-=end
   end
 
 end
