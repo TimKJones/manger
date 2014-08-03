@@ -6,7 +6,8 @@ ActiveAdmin.register Group do
 
   permit_params :street_address, :city, :first_payment_date, :final_payment_date,
     :payment_address_id, :company_id,
-    users_groups_attributes: [:_destroy, :user_id, :id]
+    users_groups_attributes: [:_destroy, :user_id, :id],
+    invites_attributes: [:_destroy, :id]
 
   index do
     selectable_column
@@ -86,6 +87,10 @@ ActiveAdmin.register Group do
 
     f.inputs "Members" do
       f.template.render partial: 'user_membership', locals: { f: f }
+    end
+
+    f.inputs "Invites" do
+      f.template.render partial: 'invites', locals: { f: f }
     end
 
     f.actions

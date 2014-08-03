@@ -7,6 +7,7 @@ class Group < ActiveRecord::Base
   belongs_to :company
 
   accepts_nested_attributes_for :users_groups, allow_destroy: true, reject_if: proc { |attributes| attributes[:user_id].blank? }
+  accepts_nested_attributes_for :invites, allow_destroy: true
 
   def to_s
     "#{street_address}, #{city}"

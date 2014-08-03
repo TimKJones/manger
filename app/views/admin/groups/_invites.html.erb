@@ -1,0 +1,5 @@
+<div id="invites">
+  <%= f.semantic_fields_for :invites do |inf| %>
+    <% render 'invite_fields', f: inf %>
+  <% end %>
+</div>
