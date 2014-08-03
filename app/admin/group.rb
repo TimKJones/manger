@@ -4,6 +4,10 @@ end
 
 ActiveAdmin.register Group do
 
+  permit_params :street_address, :city, :first_payment_date, :final_payment_date,
+    :payment_address_id, :company_id,
+    users_groups_attributes: [:_destroy, :user_id, :id]
+
   index do
     selectable_column
     id_column
@@ -69,6 +73,22 @@ ActiveAdmin.register Group do
         end
       end
     end
+  end
+
+  form do |f|
+    f.inputs "Group Details" do
+      f.input :street_address
+      f.input :city
+      f.input :payment_address
+      f.input :first_payment_date, as: :datepicker
+      f.input :company
+    end
+
+    f.inputs "Members" do
+      f.template.render partial: 'user_membership', locals: { f: f }
+    end
+
+    f.actions
   end
 
 end

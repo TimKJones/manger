@@ -1,0 +1,10 @@
+<div id="users_groups">
+  <%= f.semantic_fields_for :users_groups do |ugf| %>
+    <% render 'users_group_fields', f: ugf  %>
+<% end %>
+  <fieldset class="actions">
+    <li class="cancel">
+    <%= link_to_add_association "Add User", f, :users_groups %>
+    </li>
+  </fieldset>
+</div>

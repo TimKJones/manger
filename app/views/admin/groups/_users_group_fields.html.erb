@@ -1,0 +1,10 @@
+<div class="nested-fields">
+  <%= f.inputs do  %>
+    <%= f.input :user %>
+    <fieldset class="actions">
+      <li class="cancel">
+        <%= link_to_remove_association "Remove User", f %>
+      </li>
+    </fieldset>
+  <% end %>
+</div>
