@@ -1,0 +1,5 @@
+<div id="group_payments">
+  <%= f.semantic_fields_for :recurring_payments do |rpf| %>
+    <% render 'recurring_payment_fields', f: rpf %>
+  <% end %>
+</div>

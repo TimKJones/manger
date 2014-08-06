@@ -1,0 +1,6 @@
+<div class="nested-fields">
+  <%= f.inputs do %>
+    <%= link_to f.object.group, [:admin, f.object.group] %><br>
+    <%= f.input :rent_amount %>
+  <% end %>
+</div>

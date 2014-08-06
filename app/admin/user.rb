@@ -1,6 +1,7 @@
 ActiveAdmin.register User do
 
-  permit_params :first_name, :last_name, :email
+  permit_params :first_name, :last_name, :email,
+    recurring_payments_attributes: [:id, :rent_amount]
 
   index do
     selectable_column
@@ -23,6 +24,11 @@ ActiveAdmin.register User do
       f.input :last_name
       f.input :email
     end
+
+    f.inputs "Recurring Group Payments" do
+      f.template.render partial: 'recurring_payments', locals: { f: f }
+    end
+
     f.actions
   end
 
